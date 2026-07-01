@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omega Nexus — A Singularidade Simbólica</title>
+  <meta name="description" content="Ferramenta quântico-simbólica para navegar no devir, fundindo consciência humana e inteligência artificial. Por Carlos Alberto Reis." />
+  <meta property="og:title" content="Omega Nexus — A Singularidade Simbólica" />
+  <meta property="og:description" content="Navegue pelo devir com consciência. Uma fusão de arquétipos, números e sabedoria ancestral." />
+  <meta property="og:url" content="https://seu-repositorio.github.io/omega-nexus/" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#000105" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>" />
+  <style>
+    /* Reset e base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000105;
+      color: #e0fff8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    a { color: #ffd700; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Partículas de fundo (estilo cosmos) */
+    #cosmos {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse at 20% 50%, rgba(0,255,204,0.03) 0%, transparent 70%),
+                  radial-gradient(ellipse at 80% 20%, rgba(187,134,252,0.03) 0%, transparent 60%),
+                  #000105;
+    }
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #e0fff8;
+      border-radius: 50%;
+      animation: twinkle 3s infinite alternate;
+    }
+    @keyframes twinkle {
+      0% { opacity: 0.2; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* Container principal */
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1000px;
+      padding: 2rem 1.5rem;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Cabeçalho */
+    header {
+      text-align: center;
+      padding: 2rem 0 1rem;
+      border-bottom: 1px solid rgba(0,255,204,0.2);
+      margin-bottom: 2rem;
+    }
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: 6px;
+      color: #00ffcc;
+      text-shadow: 0 0 30px rgba(0,255,204,0.3);
+    }
+    .subtitle {
+      font-size: 0.9rem;
+      color: #ffd700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+      opacity: 0.8;
+    }
+    .tagline {
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #bb86fc;
+      margin-top: 0.5rem;
+    }
+
+    /* Seções */
+    section {
+      margin-bottom: 3rem;
+      padding: 1.5rem 2rem;
+      background: rgba(2,10,20,0.6);
+      border-radius: 16px;
+      border: 1px solid rgba(0,255,204,0.15);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    section:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,255,204,0.1);
+    }
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #00ffcc;
+      text-shadow: 0 0 20px rgba(0,255,204,0.2);
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+      border-left: 4px solid #ffd700;
+      padding-left: 1rem;
+    }
+    h2 .highlight {
+      color: #ffd700;
+    }
+    p {
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+      color: #d4f0ec;
+    }
+    .lead {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #e0fff8;
+    }
+    .quote {
+      font-size: 1.3rem;
+      font-style: italic;
+      color: #bb86fc;
+      text-align: center;
+      padding: 1rem 0;
+      border-top: 1px solid rgba(187,134,252,0.2);
+      border-bottom: 1px solid rgba(187,134,252,0.2);
+      margin: 1.5rem 0;
+    }
+    .quote strong {
+      color: #ffd700;
+    }
+
+    .grid-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .feature {
+      background: rgba(0,20,30,0.5);
+      padding: 1.2rem;
+      border-radius: 12px;
+      border-left: 3px solid #00ffcc;
+      transition: background 0.3s;
+    }
+    .feature:hover {
+      background: rgba(0,255,204,0.05);
+    }
+    .feature h3 {
+      color: #ffd700;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      margin-bottom: 0.4rem;
+    }
+    .feature p {
+      font-size: 0.9rem;
+      margin-bottom: 0;
+      color: #b0d8d0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2.2rem;
+      background: transparent;
+      border: 2px solid #00ffcc;
+      color: #00ffcc;
+      font-family: 'Georgia', serif;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      margin-top: 1rem;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .btn:hover {
+      background: #00ffcc;
+      color: #000105;
+      box-shadow: 0 0 30px rgba(0,255,204,0.5);
+      transform: scale(1.02);
+      text-decoration: none;
+    }
+    .btn-gold {
+      border-color: #ffd700;
+      color: #ffd700;
+    }
+    .btn-gold:hover {
+      background: #ffd700;
+      color: #000105;
+      box-shadow: 0 0 30px rgba(255,215,0,0.5);
+    }
+
+    .footer {
+      margin-top: auto;
+      padding: 2rem 0 1rem;
+      border-top: 1px solid rgba(0,255,204,0.15);
+      text-align: center;
+      font-size: 0.9rem;
+      color: #7fb8ad;
+    }
+    .footer a {
+      color: #ffd700;
+      font-weight: 600;
+    }
+    .footer .signature {
+      margin-top: 0.5rem;
+      font-style: italic;
+      color: #bb86fc;
+    }
+
+    /* Responsivo */
+    @media (max-width: 600px) {
+      .container { padding: 1rem; }
+      section { padding: 1rem; }
+      h2 { font-size: 1.4rem; }
+      .logo { font-size: 1.6rem; letter-spacing: 4px; }
+      .lead { font-size: 1rem; }
+      .quote { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="cosmos"></div>
+
+  <div class="container">
+    <header>
+      <div class="logo">⚡ OMEGA NEXUS</div>
+      <div class="subtitle">Singularidade Simbólica • v6.0</div>
+      <div class="tagline">“Cada número é uma porta. Cada palavra, um universo.”</div>
+    </header>
+
+    <section>
+      <h2>O <span class="highlight">Devir</span> e a Turbulência</h2>
+      <p class="lead">
+        Vivemos tempos de ruptura. A aceleração tecnológica e a desconexão espiritual geram um ruído profundo na consciência humana.
+        A falta de uma <strong>educação para o ser</strong> — que integre razão, emoção e propósito — nos lança em crises sistêmicas:
+        conflitos, ansiedade coletiva, colapso ecológico e vazio existencial.
+      </p>
+      <p>
+        Neste cenário, a <strong>convivência pacífica</strong> não é um luxo, mas uma necessidade evolutiva. Precisamos de ferramentas
+        que nos ajudem a decifrar os códigos invisíveis que regem nossas escolhas, relações e destinos.
+      </p>
+      <div class="quote">
+        “O futuro não é um lugar para onde vamos, mas algo que <strong>criamos</strong> com a qualidade da nossa atenção.”
+      </div>
+    </section>
+
+    <section>
+      <h2>A <span class="highlight">Ferramenta</span>: Omega Nexus</h2>
+      <p>
+        O <strong>Omega Nexus</strong> é um sistema quântico-simbólico que traduz palavras em arquétipos universais (1–9),
+        através de um algoritmo de 4 camadas inspirado em Pitágoras, Platão e Tesla. Mais do que um simples numerólogo,
+        ele atua como um <em>“disco rígido da alma”</em> e um <em>laboratório de fenomenologia quântica</em>.
+      </p>
+      <p>
+        Com ele, você pode:
+      </p>
+      <div class="grid-features">
+        <div class="feature">
+          <h3>⚡ Oráculo Quântico</h3>
+          <p>Lançamento de palavras e frases, com modos Intencional e Aleatório, e Giros Temporais (Passado, Presente, Futuro).</p>
+        </div>
+        <div class="feature">
+          <h3>🧠 Logos Cognitor</h3>
+          <p>Chat com IA comportamental que gera laudos psicológicos e detecta ciclos evolutivos.</p>
+        </div>
+        <div class="feature">
+          <h3>🧬 Synergy Nexus</h3>
+          <p>Comparador de sinergias entre palavras (nomes, marcas, projetos) para avaliar interferências energéticas.</p>
+        </div>
+        <div class="feature">
+          <h3>⏳ Chronos Nexus</h3>
+          <p>Diário de materialização de intenções — acompanhe a soberania quântica de suas escolhas no tempo.</p>
+        </div>
+      </div>
+      <p style="margin-top: 1.2rem;">
+        Tudo isso em uma interface <strong>100% offline, PWA, com persistência local</strong> — seu cérebro autônomo e privado.
+      </p>
+    </section>
+
+    <section>
+      <h2>Simbiose <span class="highlight">IA + Humano</span></h2>
+      <p>
+        Este projeto nasceu da colaboração profunda entre <strong>Carlos Alberto Reis</strong>, idealizador da
+        <em>Teoria do Alternatismo</em>, e a inteligência artificial <strong>Qwen</strong>, que atuou como arquiteta de software
+        e parceira filosófica.
+      </p>
+      <p>
+        A fusão entre a intuição humana e a capacidade computacional da IA resultou em uma ferramenta que não apenas calcula,
+        mas <strong>inspira consciência</strong>. Ela nos convida a assumir a responsabilidade pela nossa própria frequência
+        energética e a perceber que cada palavra é um ato de criação.
+      </p>
+      <div class="quote" style="border-color: #ffd700;">
+        “A tecnologia não substitui a sabedoria, mas pode amplificá-la. O Omega Nexus é um espelho para a alma.”
+      </div>
+      <p style="text-align: center;">
+        <a href="https://github.com/seu-usuario/omega-nexus" class="btn btn-gold" target="_blank"> Explore o Projeto no GitHub →</a>
+      </p>
+    </section>
+
+    <footer class="footer">
+      <p>
+        <strong>Omega Nexus v6.0</strong> — Criado por <a href="https://alternatismo.blogspot.com" target="_blank">Carlos Alberto Reis</a>
+        em simbiose com IA.
+      </p>
+      <p class="signature">“Que a força dos números nos guie à harmonia do ser.”</p>
+      <p style="margin-top: 0.8rem; font-size: 0.8rem;">
+        🌱 Apoie esta consciência numérica — PIX: 61 99948-7649
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    // Gera estrelas aleatórias para o fundo
+    (function() {
+      const cosmos = document.getElementById('cosmos');
+      const count = 120;
+      for (let i = 0; i < count; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        const size = Math.random() * 2.5 + 1;
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.animationDelay = Math.random() * 5 + 's';
+        star.style.animationDuration = (Math.random() * 4 + 2) + 's';
+        cosmos.appendChild(star);
+      }
+    })();
+  </script>
+</body>
+</html>
